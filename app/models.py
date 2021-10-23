@@ -6,8 +6,8 @@ from sqlalchemy.orm import sessionmaker
 class Accounts(db.Model):
     __tablename__ = 'accounts'
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String)
-    last_name = db.Column(db.String)
+    first_name = db.Column(db.String(255))
+    last_name = db.Column(db.String(255))
     account_number = db.Column(db.Integer, unique=True, nullable=False)
     ssn = db.Column(db.String(30), unique=True, nullable=False)
     account_history = db.relationship("Account_History", backref=db.backref('account_history'))
